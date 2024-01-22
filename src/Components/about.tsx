@@ -1,7 +1,5 @@
-export default function about(){
-    return(
-        <p>Prueba</p>
+function about(){
+    return (
+        <p>Error</p>
     )
 }
-
-export default about;
