@@ -4,22 +4,27 @@ import { useEffect } from 'react';
 import Moveable from "react-moveable";
 
 import './App.css'
+import axios from 'axios';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
   /* Variables donde se almacenara la imagen */
   const [imageUrl, setImageUrl] = useState();
 
-  
   /* Porque se recomienda el uso del arreglo vacío en useEffect? */
   useEffect(() => {
-    fetch("https://dog.ceo/api/breeds/image/random")
+    try{
+      fetch("https://dog.ceo/api/breeds/image/random")
       .then((response) => response.json())
       .then((dog) => {
         setImageUrl(dog.message); // ⬅️ Guardar datos
         setIsLoading(false); // ⬅️ Desactivar modo "cargando"
       });
-    }, []);
+    }
+    catch(e){
+      
+    }
+  },);
 
     
     if (isLoading) { // ⬅️ si está cargando, mostramos un texto que lo indique
